@@ -21,7 +21,11 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/components'],
+  plugins: [
+    '~/plugins/components',
+    '~/plugins/composition-api.js',
+    '~/plugins/storyblok-rich-text-renderer.js',
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -38,11 +42,13 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@storyblok/nuxt',
-    {
-      accessToken: process.env.STORYBLOK_TOKEN,
-      cacheProvider: 'memory',
-    },
+    [
+      'storyblok-nuxt',
+      {
+        accessToken: process.env.STORYBLOK_TOKEN,
+        cacheProvider: 'memory',
+      },
+    ],
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <ul v-editable="blok" class="flex py-8 mb-6">
     <li v-for="bl in blok.columns" :key="bl._uid" class="flex-auto px-6">

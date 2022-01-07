@@ -1,7 +1,9 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div v-editable="blok" class="py-2">
+  <div v-editable="blok" class="py-2 text-center">
     <h1 class="text-lg">{{ blok.name }}</h1>
+    <p class="text-gray-600">
+      {{ blok.description }}
+    </p>
   </div>
 </template>
 

@@ -1,17 +1,16 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <section>
-    <component
-      :is="story.content.component"
-      v-if="story.content.component"
-      :key="story.content._uid"
-      :blok="story.content"
-    />
+    <Article :blok="story.content" />
   </section>
 </template>
 
 <script>
+import Article from '~/components/TheArticle.vue'
+
 export default {
+  components: {
+    Article,
+  },
   data() {
     return {
       story: { content: {} },
@@ -41,14 +40,13 @@ export default {
     })
   },
   asyncData(context) {
-    // // This what would we do in real project
-    // const version = context.query._storyblok || context.isDev ? 'draft' : 'published'
-    // const fullSlug = (context.route.path == '/' || context.route.path == '') ? 'home' : context.route.path
+    // Load the JSON from the API
+    let version =
+      context.query._storyblok || context.isDev ? 'draft' : 'published'
 
-    // Load the JSON from the API - loadig the home content (index page)
     return context.app.$storyapi
-      .get('cdn/stories/home', {
-        version: 'draft',
+      .get(`cdn/stories/articles/${context.params.slug}`, {
+        version: version,
       })
       .then((res) => {
         return res.data
