@@ -2,8 +2,8 @@
 <template>
   <section>
     <h2 class="py-10 text-center font-bold text-4xl">Articles Overview</h2>
-    <ul class="grid gap-4 grid-cols-3 py-6 mb-6">
-      <li v-for="article in stories" :key="article._uid">
+    <ul class="flex flex-wrap justify-around py-6 mb-6">
+      <li class="m-4 article" v-for="article in stories" :key="article._uid">
         <article-teaser
           v-if="article.content"
           :article-link="article.full_slug"
@@ -51,3 +51,10 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.article {
+  width: 100%;
+  max-width: 400px;
+}
+</style>

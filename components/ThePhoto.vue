@@ -47,7 +47,8 @@ export default {
   max-height: 400px;
   max-width: 400px;
   margin: auto;
-  margin-bottom: 12px;
+  width: 100%;
+  margin-bottom: 8px;
 }
 .cross {
   display: none;
