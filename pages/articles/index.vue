@@ -2,13 +2,8 @@
 <template>
   <section>
     <h2 class="py-10 text-center font-bold text-4xl">Articles Overview</h2>
-    <ul class="flex flex-wrap py-6 mb-6">
-      <li
-        v-for="article in stories"
-        :key="article._uid"
-        class="flex-auto px-6"
-        style="min-width: 33%"
-      >
+    <ul class="grid gap-4 grid-cols-3 py-6 mb-6">
+      <li v-for="article in stories" :key="article._uid">
         <article-teaser
           v-if="article.content"
           :article-link="article.full_slug"

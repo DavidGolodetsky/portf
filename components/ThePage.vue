@@ -1,5 +1,5 @@
 <template>
-  <div v-editable="blok" class="px-6">
+  <div v-editable="blok">
     <component
       :is="bl.component"
       v-for="bl in blok.body"
