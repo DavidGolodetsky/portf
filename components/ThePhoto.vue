@@ -1,10 +1,10 @@
 <template>
   <div v-editable="blok" class="text-center">
     <div
-      v-for="(image, imageIndex) in images"
+      v-for="(_, imageIndex) in images"
       :key="imageIndex"
       class="image"
-      :style="{ backgroundImage: `url(${image.src})` }"
+      :style="{ backgroundImage: `url(${thumb})` }"
       @click="index = imageIndex"
     />
     <h3>{{ blok.name }}</h3>
@@ -43,6 +43,15 @@ export default {
       ],
       index: null,
     }
+  },
+  computed: {
+    thumb() {
+      const path = this.blok.image.filename.replace(
+        'https://a.storyblok.com',
+        ''
+      )
+      return `//img2.storyblok.com/300x300${path}`
+    },
   },
 }
 </script>
