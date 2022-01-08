@@ -2,7 +2,7 @@
 <template>
   <section>
     <h2 class="py-10 text-center font-bold text-4xl">Articles Overview</h2>
-    <ul class="flex flex-wrap justify-around py-6 mb-6">
+    <ul class="flex flex-wrap justify-between py-6 mb-6">
       <li class="m-4 article" v-for="article in stories" :key="article._uid">
         <article-teaser
           v-if="article.content"

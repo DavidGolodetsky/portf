@@ -26,6 +26,7 @@ export default {
     '~/plugins/components',
     '~/plugins/composition-api.js',
     '~/plugins/storyblok-rich-text-renderer.js',
+    // { src: '~/plugins/vue-easy-lightbox.js', mode: 'client' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

@@ -6,6 +6,7 @@
     <h2 class="pt-2 pb-4 text-2xl font-bold">
       {{ articleContent.name }}
     </h2>
+    <time class="pt-2 pb-6 text-slate-400">{{ articleContent.date }}</time>
     <p class="pb-6 leading-relaxed">
       {{ articleContent.intro }}
     </p>

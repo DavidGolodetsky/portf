@@ -2,7 +2,7 @@
 <template>
   <div>
     <TheHeader />
-    <Nuxt class="px-6" />
+    <Nuxt class="px-3 max-w-screen-2xl mx-auto" />
     <!-- <TheFooter /> -->
   </div>
 </template>
@@ -18,3 +18,9 @@ export default {
   },
 }
 </script>
+
+<style>
+.cool-lightbox.cool-lightbox--is-swipping {
+  cursor: default !important;
+}
+</style>

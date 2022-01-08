@@ -1,15 +1,15 @@
 <template>
   <section>
-    <Article :blok="story.content" />
+    <TheArticle :blok="story.content" />
   </section>
 </template>
 
 <script>
-import Article from '~/components/TheArticle.vue'
+import TheArticle from '~/components/TheArticle.vue'
 
 export default {
   components: {
-    Article,
+    TheArticle,
   },
   data() {
     return {

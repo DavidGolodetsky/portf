@@ -1,7 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <section>
-    <h2 class="py-10 text-center font-bold text-4xl">Gallery</h2>
     <component
       :is="story.content.component"
       v-if="story.content.component"
