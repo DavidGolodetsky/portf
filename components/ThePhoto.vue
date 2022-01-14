@@ -1,7 +1,7 @@
 <template>
   <div v-editable="blok" class="text-center">
     <div
-      v-for="(_, imageIndex) in images"
+      v-for="(_, imageIndex) in image"
       :key="imageIndex"
       class="image"
       :style="{ backgroundImage: `url(${thumb})` }"
@@ -31,20 +31,31 @@ export default {
       type: Object,
       required: true,
     },
+    columns: {
+      type: Object,
+      required: true,
+    },
   },
   data() {
     return {
-      images: [
+      index: null,
+      image: [
         {
           src: this.blok.image.filename,
           description: this.blok.description,
           title: this.blok.name,
         },
       ],
-      index: null,
     }
   },
   computed: {
+    images() {
+      return this.columns.map((column) => ({
+        src: column.image.filename,
+        description: column.description,
+        title: column.name,
+      }))
+    },
     thumb() {
       const path = this.blok.image.filename.replace(
         'https://a.storyblok.com',
