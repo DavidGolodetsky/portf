@@ -1,19 +1,19 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div>
-    <TheHeader />
+    <SbHeader />
     <Nuxt class="px-3 max-w-screen-2xl mx-auto" />
     <!-- <TheFooter /> -->
   </div>
 </template>
 
 <script>
-import TheHeader from '~/components/TheHeader.vue'
+import SbHeader from '~/components/SbHeader.vue'
 // import TheFooter from '~/components/TheFooter.vue'
 
 export default {
   components: {
-    TheHeader,
+    SbHeader,
     // TheFooter,
   },
 }

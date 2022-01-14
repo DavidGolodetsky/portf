@@ -22,7 +22,7 @@ export default {
           text: 'Home',
         },
         {
-          link: '/gallery',
+          link: '/galleries',
           text: 'Gallery',
         },
         {

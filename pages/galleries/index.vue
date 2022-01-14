@@ -1,14 +1,14 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <section>
-    <h2 class="py-10 text-center font-bold text-4xl">Articles Overview</h2>
+    <h2 class="py-10 text-center font-bold text-4xl">Galleries</h2>
     <ul class="flex flex-wrap justify-between py-6 mb-6">
-      <li class="m-4 article" v-for="article in stories" :key="article._uid">
+      <li class="m-4 article" v-for="gallery in stories" :key="gallery._uid">
         <the-teaser
-          v-if="article.content"
-          :link="article.full_slug"
-          :name="article.content.name"
-          :content="article.content"
+          v-if="gallery.content"
+          :link="gallery.full_slug"
+          :name="gallery.name"
+          :content="gallery.content"
         />
         <p v-else class="px-4 py-2 text-white bg-red-700 text-center rounded">
           This content loads on save. <strong>Save the entry & reload.</strong>
@@ -19,10 +19,10 @@
 </template>
 
 <script>
-import TheTeaser from '~/components/TheTeaser.vue'
+// import TheTeaser from '~/components/TheTeaser.vue'
 
 export default {
-  components: { TheTeaser },
+  // components: { TheTeaser },
   data() {
     return {
       stories: [],
@@ -31,7 +31,7 @@ export default {
   asyncData(context) {
     return context.app.$storyapi
       .get('cdn/stories', {
-        starts_with: 'articles/',
+        starts_with: 'galleries/',
         version: 'draft',
       })
       .then((res) => {

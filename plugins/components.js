@@ -1,14 +1,12 @@
 import Vue from 'vue'
-import ThePage from '~/components/ThePage.vue'
-import TheTeaser from '~/components/TheTeaser.vue'
-import TheGrid from '~/components/TheGrid.vue'
-import TheFeature from '~/components/TheFeature.vue'
-import ArticleTeaser from '~/components/ArticleTeaser.vue'
-import ThePhoto from '~/components/ThePhoto.vue'
+import SbPage from '~/components/SbPage.vue'
+import SbHero from '~/components/SbHero.vue'
+import SbGrid from '~/components/SbGrid.vue'
+import SbFeature from '~/components/SbFeature.vue'
+import SbPhoto from '~/components/SbPhoto.vue'
 
-Vue.component('page', ThePage)
-Vue.component('teaser', TheTeaser)
-Vue.component('grid', TheGrid)
-Vue.component('feature', TheFeature)
-Vue.component('article-teaser', ArticleTeaser)
-Vue.component('photo', ThePhoto)
+Vue.component('sb-page', SbPage)
+Vue.component('sb-hero', SbHero)
+Vue.component('sb-grid', SbGrid)
+Vue.component('sb-feature', SbFeature)
+Vue.component('sb-photo', SbPhoto)
