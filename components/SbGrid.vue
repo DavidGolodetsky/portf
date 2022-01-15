@@ -5,7 +5,12 @@
     </h2>
     <ul class="flex justify-between flex-wrap py-8 mb-6">
       <li v-for="bl in blok.columns" :key="bl._uid" class="mb-10 px-6">
-        <component :is="bl.component" :blok="bl" :columns="blok.columns" />
+        <component
+          class="component"
+          :is="bl.component"
+          :blok="bl"
+          :columns="blok.columns"
+        />
       </li>
     </ul>
   </div>
@@ -21,3 +26,10 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.component {
+  width: 400px;
+  margin-bottom: 12px;
+}
+</style>

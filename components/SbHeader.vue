@@ -23,7 +23,7 @@ export default {
         },
         {
           link: '/galleries',
-          text: 'Gallery',
+          text: 'Collections',
         },
         {
           link: '/articles',

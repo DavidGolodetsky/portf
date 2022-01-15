@@ -3,11 +3,11 @@
     <div
       v-for="(_, imageIndex) in image"
       :key="imageIndex"
-      class="image"
+      class="image mx-auto"
       :style="{ backgroundImage: `url(${thumb})` }"
       @click="index = imageIndex"
     />
-    <h3>{{ blok.name }}</h3>
+    <h3 v-if="showName">{{ blok.name }}</h3>
     <CoolLightBox
       :items="images"
       :index="index"
@@ -32,8 +32,12 @@ export default {
       required: true,
     },
     columns: {
-      type: Object,
+      type: Array,
       required: true,
+    },
+    showName: {
+      type: Boolean,
+      default: true,
     },
   },
   data() {
@@ -69,11 +73,11 @@ export default {
 
 <style scoped>
 .image {
+  width: 100%;
   height: 400px;
-  width: 400px;
-  margin-bottom: 12px;
   background-position: center;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
+  cursor: pointer;
 }
 </style>
