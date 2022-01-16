@@ -7,6 +7,7 @@
       {{ name }}
     </h2>
     <time class="pt-2 pb-6 text-slate-400">{{ content.date }}</time>
+    <img v-if="content.image" :src="getThumb(content.image)" />
     <p class="pb-6 leading-relaxed">
       {{ content.intro }}
     </p>
@@ -14,6 +15,7 @@
 </template>
 
 <script>
+import { getThumb } from '~/utils/image'
 export default {
   props: {
     content: {
@@ -28,6 +30,9 @@ export default {
       type: String,
       required: true,
     },
+  },
+  setup() {
+    return { getThumb }
   },
 }
 </script>

@@ -22,11 +22,11 @@ export default {
           text: 'Home',
         },
         {
-          link: '/galleries',
+          link: '/collections',
           text: 'Collections',
         },
         {
-          link: '/articles',
+          link: '/blog',
           text: 'Blog',
         },
       ],

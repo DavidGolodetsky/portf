@@ -4,7 +4,7 @@
       v-for="(_, imageIndex) in image"
       :key="imageIndex"
       class="image mx-auto"
-      :style="{ backgroundImage: `url(${thumb})` }"
+      :style="{ backgroundImage: `url(${getThumb(blok.image)})` }"
       @click="index = imageIndex"
     />
     <h3 v-if="showName">{{ blok.name }}</h3>
@@ -22,6 +22,7 @@
 <script>
 import CoolLightBox from 'vue-cool-lightbox'
 import 'vue-cool-lightbox/dist/vue-cool-lightbox.min.css'
+import { getThumb } from '~/utils/image'
 export default {
   components: {
     CoolLightBox,
@@ -39,6 +40,9 @@ export default {
       type: Boolean,
       default: true,
     },
+  },
+  setup() {
+    return { getThumb }
   },
   data() {
     return {
