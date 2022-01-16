@@ -8,6 +8,7 @@
       @click="index = imageIndex"
     />
     <h3 v-if="showName">{{ blok.name }}</h3>
+
     <CoolLightBox
       :items="images"
       :index="index"
