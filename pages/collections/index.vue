@@ -2,8 +2,8 @@
 <template>
   <section>
     <h2 class="py-10 text-center font-bold text-4xl">Collections</h2>
-    <ul class="flex flex-wrap justify-between py-6 mb-6">
-      <li class="m-4 article" v-for="gallery in stories" :key="gallery._uid">
+    <ul class="main-grid">
+      <li class="m-4" v-for="gallery in stories" :key="gallery._uid">
         <the-teaser
           v-if="gallery.content"
           :link="gallery.full_slug"
@@ -52,10 +52,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-.article {
-  width: 100%;
-  max-width: 400px;
-}
-</style>

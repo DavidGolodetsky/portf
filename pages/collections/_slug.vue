@@ -1,24 +1,51 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <section>
-    <component
-      :is="story.content.component"
-      v-if="story.content.component"
-      :key="story.content._uid"
-      :blok="story.content"
-    />
+    <div v-if="story.content.component" class="main-grid">
+      <div
+        v-for="(body, imageIndex) in story.content.body"
+        :key="imageIndex"
+        @click="index = imageIndex"
+      >
+        <SbPhoto :key="imageIndex" :blok="body" class="img" />
+      </div>
+    </div>
     <p v-else class="px-4 py-2 text-white bg-red-700 text-center rounded">
       This content loads on save. <strong>Save the entry & reload.</strong>
     </p>
+    <CoolLightBox
+      :items="images"
+      :index="index"
+      :full-screen="true"
+      :use-zoom-bar="true"
+      effect="fade"
+      @close="index = null"
+    />
   </section>
 </template>
 
 <script>
+import CoolLightBox from 'vue-cool-lightbox'
+import 'vue-cool-lightbox/dist/vue-cool-lightbox.min.css'
+
 export default {
+  components: {
+    CoolLightBox,
+  },
   data() {
     return {
       story: { content: {} },
+      index: null,
     }
+  },
+  computed: {
+    images() {
+      return this.story.content.body.map((item) => ({
+        src: item.image.filename,
+        description: item.description,
+        title: item.name,
+      }))
+    },
   },
   mounted() {
     this.$storybridge(() => {
@@ -73,3 +100,9 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.img {
+  width: 400px;
+}
+</style>

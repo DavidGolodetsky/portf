@@ -11,4 +11,9 @@
 .cool-lightbox.cool-lightbox--is-swipping {
   cursor: default !important;
 }
+.main-grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 16px;
+}
 </style>

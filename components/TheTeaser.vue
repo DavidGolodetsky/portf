@@ -1,7 +1,7 @@
 <template>
   <nuxt-link
     :to="link"
-    class="article-teaser block py-4 px-6 border rounded border-gray-500"
+    class="article-teaser block py-4 px-6 border rounded border-gray-500 h-full"
   >
     <h2 class="pt-2 pb-4 text-2xl font-bold">
       {{ name }}

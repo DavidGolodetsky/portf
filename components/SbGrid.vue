@@ -3,8 +3,8 @@
     <h2 class="py-10 text-center font-bold text-4xl">
       {{ blok.title }}
     </h2>
-    <ul class="flex justify-between flex-wrap py-8 mb-6">
-      <li v-for="bl in blok.columns" :key="bl._uid" class="mb-10 px-6">
+    <ul class="main-grid">
+      <li v-for="bl in blok.columns" :key="bl._uid">
         <component
           class="component"
           :is="bl.component"
@@ -30,6 +30,5 @@ export default {
 <style scoped>
 .component {
   width: 400px;
-  margin-bottom: 12px;
 }
 </style>

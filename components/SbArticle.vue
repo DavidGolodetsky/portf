@@ -3,7 +3,7 @@
     <h1>{{ blok.name }}</h1>
     <time class="pt-2 pb-4">{{ blok.date }}</time>
     <div class="relative">
-      <SbPhoto
+      <SbGallery
         :blok="blok.gallery[0].columns[0]"
         :columns="blok.gallery[0].columns"
         :show-name="false"
