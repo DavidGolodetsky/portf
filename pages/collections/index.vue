@@ -3,7 +3,7 @@
   <section>
     <h2 class="py-10 text-center font-bold text-4xl">Collections</h2>
     <ul class="main-grid">
-      <li class="m-4" v-for="gallery in stories" :key="gallery._uid">
+      <li v-for="gallery in stories" :key="gallery._uid" class="m-4">
         <the-teaser
           v-if="gallery.content"
           :link="gallery.full_slug"
@@ -19,36 +19,18 @@
 </template>
 
 <script>
-export default {
-  data() {
+import { defineComponent, useAsync, computed } from '@nuxtjs/composition-api'
+import useSb from '~/composables/useSb'
+
+export default defineComponent({
+  setup() {
+    const { getSbData } = useSb()
+    const storiesRaw = useAsync(() => getSbData('collections'))
+    const stories = computed(() => storiesRaw.value?.stories)
+
     return {
-      stories: [],
+      stories,
     }
   },
-  asyncData(context) {
-    return context.app.$storyapi
-      .get('cdn/stories', {
-        starts_with: 'collections/',
-        version: 'draft',
-      })
-      .then((res) => {
-        return res.data
-      })
-      .catch((res) => {
-        if (!res.response) {
-          console.error(res)
-          context.error({
-            statusCode: 404,
-            message: 'Failed to receive content form api',
-          })
-        } else {
-          console.error(res.response.data)
-          context.error({
-            statusCode: res.response.status,
-            message: res.response.data,
-          })
-        }
-      })
-  },
-}
+})
 </script>
